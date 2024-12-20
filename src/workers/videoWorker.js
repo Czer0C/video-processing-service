@@ -2,11 +2,15 @@ const ffmpeg = require('fluent-ffmpeg')
 const path = require('path')
 const bucket = require('../config/gcs')
 
+const fs = require('fs')
+
 const processVideo = async (filePath, fileName) => {
   try {
     const outputDir = path.join('processed', fileName)
 
-    console.log({ outputDir })
+    if (!fs.existsSync(outputDir)) {
+      fs.mkdirSync(outputDir, { recursive: true })
+    }
 
     // Transcoding to HLS
     await new Promise((resolve, reject) => {
