@@ -5,7 +5,7 @@ const bucket = require('../config/gcs')
 
 const processVideo = async (filePath, fileName) => {
     try {
-        const outputDir = path.join("processed", fileName);
+        const outputDir = path.join("/processed", fileName);
 
         console.log(filePath);
 
