@@ -7,6 +7,8 @@ const processVideo = async (filePath, fileName) => {
     try {
         const outputDir = path.join("processed", fileName);
 
+        console.log(filePath);
+
         // Transcoding to HLS
         await new Promise((resolve, reject) => {
             ffmpeg(filePath)
