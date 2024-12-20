@@ -5,9 +5,9 @@ const bucket = require('../config/gcs')
 
 const processVideo = async (filePath, fileName) => {
     try {
-        const outputDir = path.join("/processed", fileName);
+        // const outputDir = path.join("/processed", fileName);
+        const outputDir = `${filePath}`.replace('uploads', 'processed').split('/').slice(0,-1).join('/') + fileName
 
-        console.log(filePath);
 
         // Transcoding to HLS
         await new Promise((resolve, reject) => {
