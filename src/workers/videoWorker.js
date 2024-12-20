@@ -19,7 +19,10 @@ const processVideo = async (filePath, fileName) => {
                     "-f hls",
                 ])
                 .on("end", resolve)
-                .on("error", reject)
+                .on("error", (err, stdout, stderr) => {
+                    console.error("Error:", err.message);
+                    console.error("FFmpeg stderr:", stderr);
+                })
                 .run();
         });
 
