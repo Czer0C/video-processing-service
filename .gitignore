@@ -47,6 +47,8 @@ _static
 .idea/
 env.development
 package-lock.json
+pnpm-lock.yaml
+yarn.lock
 
 key.json
 
