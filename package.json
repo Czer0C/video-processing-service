@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "dc:bd": "docker-compose up --build -d",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

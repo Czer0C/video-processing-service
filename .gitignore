@@ -49,3 +49,5 @@ env.development
 package-lock.json
 
 key.json
+
+/processed

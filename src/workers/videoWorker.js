@@ -4,7 +4,7 @@ const bucket = require('../config/gcs')
 
 const fs = require('fs')
 
-const processVideo = async (filePath, fileName) => {
+const processVideo = async (filePath, fileName, processingId) => {
   try {
     const outputDir = path.join('processed', fileName)
 
@@ -48,9 +48,12 @@ const processVideo = async (filePath, fileName) => {
     await bucket.upload(`${outputDir}/output.m3u8`, {
       destination: `videos/${fileName}/output.m3u8`,
     })
+
     await bucket.upload(thumbnailPath, {
       destination: `thumbnails/${fileName}.png`,
     })
+
+    //!TODO: from processingId updating status in db and push notifi or whatever
 
     console.log('Processing complete. Files uploaded.')
   } catch (err) {
